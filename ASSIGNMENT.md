@@ -49,8 +49,14 @@
      - Optional Challenge: Get the photo URL and reply to the user with the URL
 
 
+3. Shortcuts
+   - You want your user to easily find commands, how do you tell them what the commands are?
+   - Hint: Bot father
+
+
                         
 ## Optional challenge:      
    - Automate webhook setting
    - Stop using axios
    - Use your own fetch method
+   - 
