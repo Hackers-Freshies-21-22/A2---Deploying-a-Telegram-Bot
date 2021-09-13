@@ -25,7 +25,7 @@ function processUpdate(body) {
 	function getIsPalindrome() {
 		function helper() {
 			for(let i = 0; i < Math.floor(message.length / 2); i++) {
-				if(message.charAt(i) !== message.charAt(message.length - 1)) {
+				if(message.charAt(i) !== message.charAt(message.length - i - 1)) {
 					return false;
 				}
 			}
