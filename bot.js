@@ -8,7 +8,42 @@ console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 //setWebhook(telegramUrl + "/setWebhook?url=https://leeyi45-bot.herokuapp.com/");
 
 function processUpdate(body) {
-  sendText(body.message.chat.id, body.message.text);
+	const message = body.message.text;
+	
+	function getMessageLength() {
+		return "Length of the message is ${message.length}";
+	}
+	
+	function getUppercase() {
+		return message.toUpperCase();
+	}
+	
+	function getReversed() {
+		return message.split('').reverse().join('');
+	}
+	
+	function getIsPalindrome() {
+		function helper() {
+			for(let i = 0; i < Math.floor(message.length / 2); i++) {
+				if(message.charAt(i) !== message.charAt(message.length - 1)) {
+					return false;
+				}
+			}
+			return true;
+		}
+		
+		return "${message} is${(getIsPalindrome() ? '': ' not')} a palindrome";
+	}
+	
+	let reply = {
+		getMessageLength(),
+		getUppercase(),
+		getReversed(),
+		getIsPalindrome()
+	}
+	
+	sendText(body.message.chat.id, reply.join('\n'));
+  
 }
 
 function sendText(chatId, text) {
