@@ -35,6 +35,10 @@ function processUpdate(body) {
 		return `${message} is${(helper() ? '': ' not')} a palindrome`;
 	}
 	
+	function getPhoto() {
+		sendPhoto(body.message.chat.id, "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.engadget.com%2Fnever-gonna-give-you-up-4k-60-fps-ai-remaster-193534473.html&psig=AOvVaw0osCbB5dSKl-kuzRQ30YnH&ust=1631627027564000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMjG2byK_PICFQAAAAAdAAAAABAD");
+	}
+	
 	let reply = [
 		getMessageLength(),
 		getUppercase(),
@@ -44,6 +48,18 @@ function processUpdate(body) {
 	
 	sendText(body.message.chat.id, reply.join('\n'));
   
+}
+
+function sendPhoto(chatId, photo_url) {
+	let data = {
+		"chat_id": chatId,
+		"photo": photo_url
+	};
+	
+	const res = axios.post(`${telegramUrl}/sendPhoto`, data);
+	res.then(response => {
+		return response;
+	}).catch(err => console.log(err));
 }
 
 function sendText(chatId, text) {
