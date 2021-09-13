@@ -53,7 +53,7 @@ function processUpdate(body) {
 		sendText(body.message.chat.id, reply.join('\n'));
 	}
 	else if(body.message.photo !== undefined){
-		const photo = body.message.photo;
+		const photo = body.message.photo[0];
 		console.log(photo.file_id);
 		//sendPhoto(body.message.chat.id, photo.file_id);
 	}
