@@ -14,12 +14,12 @@ function processUpdate(body) {
 function sendText(chatId, text) {
   var data = {
     "chat_id": chatId,
-    "text": text,
+    "text": "Hi",
     "parse_mode": "Markdown",
   };
   const res = axios.post(`${telegramUrl}/sendMessage`, data);
   res.then(response => {
-    return concat("Length of message is ", response.length);
+    return response;
   }).catch(err => console.log(err));
 }
 
