@@ -5,7 +5,7 @@ const axios = require('axios');
 
 console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 
-//setWebhook https://api.telegram.org/bot<token>/setWebhook?url=<url>
+// setWebhook https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/setWebhook?url=https://eusoff-hackers.herokuapp.com/
 
 function processUpdate(body) {
   sendText(body.message.chat.id, body.message.text);
@@ -19,7 +19,7 @@ function sendText(chatId, text) {
   };
   const res = axios.post(`${telegramUrl}/sendMessage`, data);
   res.then(response => {
-    return response;
+    return concat("Length of message is ", response.length);
   }).catch(err => console.log(err));
 }
 
