@@ -40,16 +40,21 @@ function processUpdate(body) {
 		return message.photo;
 	}
 	
-	let reply = [
-		getMessageLength(),
-		getUppercase(),
-		getReversed(),
-		getIsPalindrome(),
-		getPhoto()
-	];
-	
-	sendText(body.message.chat.id, reply.join('\n'));
-  
+	if(message !== undefined)
+	{
+		let reply = [
+			getMessageLength(),
+			getUppercase(),
+			getReversed(),
+			getIsPalindrome(),
+			getPhoto()
+		];
+		
+		sendText(body.message.chat.id, reply.join('\n'));
+	}
+	else {
+		console.log(body.message.photo);
+	}
 }
 
 function sendPhoto(chatId, photo_url) {
