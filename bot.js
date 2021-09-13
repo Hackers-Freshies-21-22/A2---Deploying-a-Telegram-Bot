@@ -11,7 +11,7 @@ function processUpdate(body) {
 	const message = body.message.text;
 	
 	function getMessageLength() {
-		return "Length of the message is ${message.length}";
+		return `Length of the message is ${message.length}`;
 	}
 	
 	function getUppercase() {
@@ -32,7 +32,7 @@ function processUpdate(body) {
 			return true;
 		}
 		
-		return "${message} is${(getIsPalindrome() ? '': ' not')} a palindrome";
+		return `${message} is${(getIsPalindrome() ? '': ' not')} a palindrome`;
 	}
 	
 	let reply = [
