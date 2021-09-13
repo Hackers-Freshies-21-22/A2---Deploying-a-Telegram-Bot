@@ -5,7 +5,7 @@ const axios = require('axios');
 
 console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 
-setWebhook(telegramUrl + "/setWebhook?url=https://leeyi45-bot.herokuapp.com/");
+//setWebhook(telegramUrl + "/setWebhook?url=https://leeyi45-bot.herokuapp.com/");
 
 function processUpdate(body) {
   sendText(body.message.chat.id, body.message.text);
