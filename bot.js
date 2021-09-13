@@ -37,16 +37,17 @@ function processUpdate(body) {
 	
 	function getPhoto() {
 		sendPhoto(body.message.chat.id, "https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png");
+		return message.photo;
 	}
 	
 	let reply = [
 		getMessageLength(),
 		getUppercase(),
 		getReversed(),
-		getIsPalindrome()
+		getIsPalindrome(),
+		getPhoto()
 	];
 	
-	getPhoto();
 	sendText(body.message.chat.id, reply.join('\n'));
   
 }
