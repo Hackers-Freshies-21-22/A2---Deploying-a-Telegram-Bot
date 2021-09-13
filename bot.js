@@ -38,8 +38,7 @@ function processUpdate(body) {
 	let reply = [
 		getMessageLength(),
 		getUppercase(),
-		getReversed(),
-		getIsPalindrome()
+		getReversed()//,getIsPalindrome()
 	];
 	
 	sendText(body.message.chat.id, reply.join('\n'));
