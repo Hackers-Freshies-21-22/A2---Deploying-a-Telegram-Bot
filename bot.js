@@ -36,7 +36,7 @@ function processUpdate(body) {
 	}
 	
 	function getPhoto() {
-		sendPhoto(body.message.chat.id, "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.engadget.com%2Fnever-gonna-give-you-up-4k-60-fps-ai-remaster-193534473.html&psig=AOvVaw0osCbB5dSKl-kuzRQ30YnH&ust=1631627027564000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMjG2byK_PICFQAAAAAdAAAAABAD");
+		sendPhoto(body.message.chat.id, "https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png");
 	}
 	
 	let reply = [
@@ -46,6 +46,7 @@ function processUpdate(body) {
 		getIsPalindrome()
 	];
 	
+	getPhoto();
 	sendText(body.message.chat.id, reply.join('\n'));
   
 }
