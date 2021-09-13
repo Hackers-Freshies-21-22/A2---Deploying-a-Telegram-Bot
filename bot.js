@@ -32,13 +32,14 @@ function processUpdate(body) {
 			return true;
 		}
 		
-		return `${message} is${(getIsPalindrome() ? '': ' not')} a palindrome`;
+		return `${message} is${(helper() ? '': ' not')} a palindrome`;
 	}
 	
 	let reply = [
 		getMessageLength(),
 		getUppercase(),
-		getReversed()//,getIsPalindrome()
+		getReversed(),
+		getIsPalindrome()
 	];
 	
 	sendText(body.message.chat.id, reply.join('\n'));
