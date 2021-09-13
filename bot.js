@@ -19,7 +19,7 @@ function sendText(chatId, text) {
   };
   const res = axios.post(`${telegramUrl}/sendMessage`, data);
   res.then(response => {
-    return concat("Length of message is ", response.length);
+    return "Hi";
   }).catch(err => console.log(err));
 }
 
