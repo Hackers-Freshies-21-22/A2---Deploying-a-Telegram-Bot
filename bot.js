@@ -1,4 +1,4 @@
-const token = process.env.TELEGRAM_TOKEN;
+const token = "773814416:AAHCqZF21y556MneqEhtPRkZ_clWeMGk-QQ";//process.env.TELEGRAM_TOKEN;
 var telegramUrl = "https://api.telegram.org/bot" + token;
 
 const axios = require('axios');
@@ -35,12 +35,12 @@ function processUpdate(body) {
 		return "${message} is${(getIsPalindrome() ? '': ' not')} a palindrome";
 	}
 	
-	let reply = {
+	let reply = [
 		getMessageLength(),
 		getUppercase(),
 		getReversed(),
 		getIsPalindrome()
-	}
+	];
 	
 	sendText(body.message.chat.id, reply.join('\n'));
   
