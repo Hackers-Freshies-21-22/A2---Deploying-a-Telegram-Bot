@@ -17,7 +17,7 @@ var Message = function(message) {
 
 // Bot analyses textbody and run the return text function.
 function processUpdate(body) {
-  sendPhoto(body.message.chat.id, body.message.chat.photo);
+  sendPhoto(body.message.chat.id, body.message.photo);
 }
 
 function sendText(chatId, text) {
@@ -47,7 +47,7 @@ function sendText(chatId, text) {
 function sendPhoto(chatId, photo) {
   var data = {
     "chat_id": chatId,
-    "photo" : photo.big_file_id,
+    "photo" : photo.file_id,
     "parse_mode": "Markdown",
   };
   const res = axios.post(`${telegramUrl}/sendPhoto`, data);
