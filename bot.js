@@ -9,13 +9,12 @@ console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 //setWebhook https://api.telegram.org/bot1928355698:AAGhQC-xDoTW0zxgxDQuQ6xayjACQEDDFyQ/setWebhook?url=https://immense-escarpment-36150.herokuapp.com/
 
 function processUpdate(body) {
-  sendPhoto(body.message.chat.id,body.message.photo);
+  sendPhoto(body.message.chat.id,body.message.text);
 }
-function sendPhoto(chatId, photo) {
+function sendPhoto(chatId, text) {
   var data = {
     "chat_id": chatId,
-    " https://telegram.org/img/t_logo.png": photo,
-    "text":text,
+    " https://telegram.org/img/t_logo.png": "photo",
     "parse_mode": "Markdown",
   };
   const res = axios.post(`${telegramUrl}/sendPhoto`, data);
