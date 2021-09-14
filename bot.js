@@ -14,7 +14,7 @@ function sendPhoto(chatId,text){
   var data = {
     "chat_id": chatId,
     "text": text,
-    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AArrow-right-small.svg&psig=AOvVaw2kN0giXxl4UuyWjcggL1yf&ust=1631717969095000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDJ_aPd_vICFQAAAAAdAAAAABAD":"image",
+    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpaperaccess.com%2F1mb&psig=AOvVaw07_qHM_Vt2Okeon233hW0I&ust=1631718248467000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIi8pKbe_vICFQAAAAAdAAAAABAD":"image",
     "parse_mode": "Markdown",
 }
 // function sendText(chatId, text) {
