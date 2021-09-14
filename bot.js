@@ -57,22 +57,23 @@ function sendPhoto(chatId, photo) {
   //   console.log(error);
   // });
 
-//   async function axiosTest() {
-//     const response = await axios.get(url);
-//     return response.data.result.file_path;
-//   }
-//   const pic = (async () => {
-//     console.log(await getValue());
-// })();
-
-  function axiosTest() {
-    return axios.get(url).then(response => response.data);
+  async function axiosTest() {
+    const response = await axios.get(url);
+    return response.data.result.file_path;
   }
-  const pic = axiosTest()
-    .then(data => {
-        return data;
-    })
-    .catch(err => console.log(err));
+  const pic = (async () => {
+    await getValue();
+  })();
+
+  // function axiosTest() {
+  //   return axios.get(url).then(response => response.data);
+  // }
+  // const pic = axiosTest()
+  //   .then(data => {
+  //       console.log(data);
+  //       data;
+  //   })
+  //   .catch(err => console.log(err));
 
   var data = {
     "chat_id": chatId,
