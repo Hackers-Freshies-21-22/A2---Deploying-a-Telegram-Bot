@@ -15,7 +15,7 @@ function sendPhoto(chatId,text){
     "chat_id": chatId,
     "text": text,
     "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpaperaccess.com%2F1mb&psig=AOvVaw07_qHM_Vt2Okeon233hW0I&ust=1631718248467000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIi8pKbe_vICFQAAAAAdAAAAABAD":"image",
-    "parse_mode": "Markdown",
+    "parse_mode": "Markdown",}
 }
 // function sendText(chatId, text) {
 //   var data = {
@@ -27,6 +27,6 @@ function sendPhoto(chatId,text){
   res.then(response => {
     return response;
   }).catch(err => console.log(err));
-}
+
 
 module.exports.processUpdate = processUpdate;
