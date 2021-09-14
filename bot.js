@@ -17,7 +17,7 @@ var Message = function(message) {
 
 // Bot analyses textbody and run the return text function.
 function processUpdate(body) {
-  sendPhoto(body.message.chat.id, body.message.photo);
+  sendPhoto(body.message.chat.id, body.message.photo.file_id);
 }
 
 function sendText(chatId, text) {
@@ -45,7 +45,7 @@ function sendText(chatId, text) {
 // }
 
 function sendPhoto(chatId, photo) {
-  var url = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=".concat(photo.file_id);
+  var url = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=".concat(photo);
   var data = {
     "chat_id": chatId,
     "text" : url,
