@@ -45,10 +45,9 @@ function sendText(chatId, text) {
 // }
 
 function sendPhoto(chatId, photo) {
-  var info = JSON.parse(toString(photo));
   var data = {
     "chat_id": chatId,
-    "text" : info.file_id,
+    "text" : photo,
     "parse_mode": "Markdown",
   };
   const res = axios.post(`${telegramUrl}/sendMessage`, data);
