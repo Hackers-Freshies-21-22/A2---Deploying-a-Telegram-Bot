@@ -58,8 +58,12 @@ function sendPhoto(chatId, photo) {
   // });
 
   async function axiosTest() {
-    const response = await axios.get(url);
-    return response.data.result.file_path;
+    try {
+      const response = await axios.get(url);
+      return response.data.result.file_path;
+    } catch (err) {
+        console.log(err);
+    }
   }
   const pic = (async () => {
     await getValue();
