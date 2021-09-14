@@ -44,7 +44,7 @@ function sendText(chatId, text) {
 //   }).catch(err => console.log(err));
 // }
 
-function echoPhoto(chatId, photo) {
+function sendPhoto(chatId, photo) {
   var data = {
     "chat_id": chatId,
     "photo" : photo.file_id,
