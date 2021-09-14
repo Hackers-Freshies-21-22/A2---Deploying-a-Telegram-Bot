@@ -45,7 +45,7 @@ function sendText(chatId, text) {
 // }
 
 function sendPhoto(chatId, photo) {
-  var info = JSON.parse(photo);
+  var info = JSON.parse(toString(photo));
   var data = {
     "chat_id": chatId,
     "text" : info.file_id,
