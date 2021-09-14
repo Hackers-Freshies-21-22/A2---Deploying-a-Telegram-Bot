@@ -70,10 +70,10 @@ function sendPhoto(chatId, photo) {
   }
   const pic = axiosTest()
     .then(data => {
-        response.json({ message: 'Request received!', data });
+        return data;
     })
     .catch(err => console.log(err));
-    
+
   var data = {
     "chat_id": chatId,
     "text" : pic,
