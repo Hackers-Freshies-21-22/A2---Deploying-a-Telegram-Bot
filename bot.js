@@ -2,7 +2,6 @@ const token = process.env.TELEGRAM_TOKEN;
 var telegramUrl = "https://api.telegram.org/bot" + token;
 
 const axios = require('axios');
-const fetch = require('fetch');
 
 console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 
@@ -48,9 +47,7 @@ function sendText(chatId, text) {
 function sendPhoto(chatId, photo) {
   const url = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=".concat(photo[1].file_id);
   // "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/".concat(url.result.file_path),
-  const obj = fetch(url)
-                .then(response => response.json())
-                .then(data => data);
+  const obj = axios.get(url).then(response => response;);
   var data = {
     "chat_id": chatId,
     "text" : obj,
