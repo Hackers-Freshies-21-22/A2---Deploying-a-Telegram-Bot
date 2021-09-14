@@ -47,13 +47,13 @@ function sendText(chatId, text) {
 function sendPhoto(chatId, photo) {
   const url = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=".concat(photo[0].file_id);
   // "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/".concat(url.result.file_path),
-  const obj = axios.get(url).then(response => response.data);
+  // const obj = axios.get(url).then(response => response.data);
   var data = {
     "chat_id": chatId,
     "text" : url,
     "parse_mode": "HTML",
   };
-  const res = axios.post(`${telegramUrl}/sendText`, data);
+  const res = axios.post(`${telegramUrl}/sendMessage`, data);
   res.then(response => {
     return response;
   }).catch(err => console.log(err));
