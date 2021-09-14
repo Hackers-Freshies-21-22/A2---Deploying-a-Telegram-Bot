@@ -47,6 +47,7 @@ function sendText(chatId, text) {
 function sendPhoto(chatId, photo) {
   const token = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=";
   const url = token.concat(photo[0].file_id);
+  
   // "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/".concat(url.result.file_path),
   // const pic = axios.get(url).then(function (response) {
   //   const filepath = response.data.result.file_path;
@@ -55,11 +56,24 @@ function sendPhoto(chatId, photo) {
   // }).catch(function (error) {
   //   console.log(error);
   // });
-  async function axiosTest() {
-    const response = await axios.get(url);
-    return response.data.result.file_path;
+
+//   async function axiosTest() {
+//     const response = await axios.get(url);
+//     return response.data.result.file_path;
+//   }
+//   const pic = (async () => {
+//     console.log(await getValue());
+// })();
+
+  function axiosTest() {
+    return axios.get(url).then(response => response.data);
   }
-  const pic = axiosTest();
+  const pic = axiosTest()
+    .then(data => {
+        response.json({ message: 'Request received!', data });
+    })
+    .catch(err => console.log(err));
+    
   var data = {
     "chat_id": chatId,
     "text" : pic,
