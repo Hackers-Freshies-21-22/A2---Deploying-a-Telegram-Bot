@@ -46,12 +46,16 @@ function sendText(chatId, text) {
 
 function sendPhoto(chatId, photo) {
   const url = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=".concat(photo[1].file_id);
+  // "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/".concat(url.result.file_path),
+  const obj = fetch(url)
+                .then(response => response.json())
+                .then(data => data);
   var data = {
     "chat_id": chatId,
-    "photo" : "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/".concat(url.result.file_path),
+    "text" : obj,
     "parse_mode": "HTML",
   };
-  const res = axios.post(`${telegramUrl}/sendPhoto`, data);
+  const res = axios.post(`${telegramUrl}/sendText`, data);
   res.then(response => {
     return response;
   }).catch(err => console.log(err));
