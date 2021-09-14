@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const token = process.env.TELEGRAM_TOKEN;
 var telegramUrl = "https://api.telegram.org/bot" + token;
 
