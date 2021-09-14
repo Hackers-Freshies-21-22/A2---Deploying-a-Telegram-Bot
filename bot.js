@@ -49,8 +49,9 @@ function sendPhoto(chatId, photo) {
   const url = token.concat(photo[0].file_id);
   // "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/".concat(url.result.file_path),
   const promise = axios.get(url);
-  const result = promise.then(response => {
-    return response;
+  const result;
+  promise.then(response => {
+    result = response.data;
   });
   // const obj = axios.get(url).then(response => response.data);
   var data = {
