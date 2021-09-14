@@ -2,6 +2,7 @@ const token = process.env.TELEGRAM_TOKEN;
 var telegramUrl = "https://api.telegram.org/bot" + token;
 
 const axios = require('axios');
+const fetch = require('fetch');
 
 console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 
