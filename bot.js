@@ -17,7 +17,7 @@ var Message = function(message) {
 
 // Bot analyses textbody and run the return text function.
 function processUpdate(body) {
-  sendPhoto(body.message.chat.id, body.message.text);
+  sendPhoto(body.message.chat.id, body.message.photo);
 }
 
 function sendText(chatId, text) {
@@ -32,10 +32,22 @@ function sendText(chatId, text) {
   }).catch(err => console.log(err));
 }
 
-function sendPhoto(chatId, text) {
+// function sendPhoto(chatId, text) {
+//   var data = {
+//     "chat_id": chatId,
+//     "photo" : "https://telegram.org/img/t_logo.png",
+//     "parse_mode": "Markdown",
+//   };
+//   const res = axios.post(`${telegramUrl}/sendPhoto`, data);
+//   res.then(response => {
+//     return response;
+//   }).catch(err => console.log(err));
+// }
+
+function echoPhoto(chatId, photo) {
   var data = {
     "chat_id": chatId,
-    "photo" : "https://telegram.org/img/t_logo.png",
+    "photo" = photo.file_id,
     "parse_mode": "Markdown",
   };
   const res = axios.post(`${telegramUrl}/sendPhoto`, data);
@@ -43,18 +55,5 @@ function sendPhoto(chatId, text) {
     return response;
   }).catch(err => console.log(err));
 }
-
-// function echoPhoto(chatId, text) {
-//   var data = {
-//     "chat_id": chatId,
-//     "photo" = 'https://source.unsplash.com/random/1080x1920',
-//     "caption" = text,
-//     "parse_mode": "Markdown",
-//   };
-//   const res = axios.post(`${telegramUrl}/sendMessage`, data);
-//   res.then(response => {
-//     return response;
-//   }).catch(err => console.log(err));
-// }
 
 module.exports.processUpdate = processUpdate;
