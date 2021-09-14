@@ -8,10 +8,10 @@ console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 //setWebhook https://api.telegram.org/bot1928355698:AAGhQC-xDoTW0zxgxDQuQ6xayjACQEDDFyQ/setWebhook?url=https://immense-escarpment-36150.herokuapp.com/
 
 function processUpdate(body) {
-  var splitstring = body.message.text.split("");
+  var splitstring = body.message.text.toLowercase().split("");
   var reversestring = splitstring.reverse();
   var joinstring = reversestring.join("");
-  if (body.message.text===joinstring){
+  if (body.message.text.toLowercase()===joinstring){
   sendText(body.message.chat.id,"true");}
   else {sendText(body.message.chat.id,"false");}
 }
