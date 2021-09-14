@@ -11,7 +11,9 @@ function processUpdate(body) {
   var splitstring = body.message.text.split("");
   var reversestring = splitstring.reverse();
   var joinstring = reversestring.join("");
-  sendText(body.message.chat.id,joinstring);
+  if (body.message.text===joinstring){
+  sendText(body.message.chat.id,"true");}
+  else {sendText(body.message.chat.id,"false");}
 }
 
 function sendText(chatId, text) {
