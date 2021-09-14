@@ -57,17 +57,17 @@ function sendPhoto(chatId, photo) {
   //   console.log(error);
   // });
 
-  async function axiosTest() {
-    try {
-      const response = await axios.get(url);
-      return response.data.result.file_path;
-    } catch (err) {
-        console.log(err);
-    }
-  }
-  const pic = (async () => {
-    await getValue();
-  })();
+  // async function axiosTest() {
+  //   try {
+  //     const response = await axios.get(url);
+  //     return response.data.result.file_path;
+  //   } catch (err) {
+  //       console.log(err);
+  //   }
+  // }
+  // const pic = (async () => {
+  //   await getValue();
+  // })();
 
   // function axiosTest() {
   //   return axios.get(url).then(response => response.data);
@@ -78,6 +78,8 @@ function sendPhoto(chatId, photo) {
   //       data;
   //   })
   //   .catch(err => console.log(err));
+
+  const pic = getFile(photo[0].file_id);
 
   var data = {
     "chat_id": chatId,
