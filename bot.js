@@ -5,10 +5,10 @@ const axios = require('axios');
 
 console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 
-//setWebhook https://api.telegram.org/bot<token>/setWebhook?url=<url>
+//setWebhook https://api.telegram.org/bot1928355698:AAGhQC-xDoTW0zxgxDQuQ6xayjACQEDDFyQ/setWebhook?url=https://immense-escarpment-36150.herokuapp.com/
 
 function processUpdate(body) {
-  sendText(body.message.chat.id, body.message.text);
+  sendText(body.message.chat.id,"The length of the text is"+body.message.text.length);
 }
 
 function sendText(chatId, text) {
