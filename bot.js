@@ -17,7 +17,7 @@ var Message = function(message) {
 
 // Bot analyses textbody and run the return text function.
 function processUpdate(body) {
-  sendPhoto(body.message.chat.id, body.message.photo.file_id);
+  sendPhoto(body.message.chat.id, body.message.photo);
 }
 
 function sendText(chatId, text) {
