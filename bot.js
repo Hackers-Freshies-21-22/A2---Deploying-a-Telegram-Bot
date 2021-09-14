@@ -48,13 +48,18 @@ function sendPhoto(chatId, photo) {
   const token = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=";
   const url = token.concat(photo[0].file_id);
   // "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/".concat(url.result.file_path),
-  const pic = axios.get(url).then(function (response) {
-    const filepath = response.data.result.file_path;
-    const prefix = "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/";
-    alert(prefix.concat(filepath));
-  }).catch(function (error) {
-    console.log(error);
-  });
+  // const pic = axios.get(url).then(function (response) {
+  //   const filepath = response.data.result.file_path;
+  //   const prefix = "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/";
+  //   alert(prefix.concat(filepath));
+  // }).catch(function (error) {
+  //   console.log(error);
+  // });
+  async function axiosTest() {
+    const response = await axios.get(url);
+    return response.data.result.file_path;
+  }
+  const pic = axiosTest();
   var data = {
     "chat_id": chatId,
     "text" : pic,
