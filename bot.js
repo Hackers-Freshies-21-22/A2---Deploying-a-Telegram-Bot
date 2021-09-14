@@ -45,9 +45,10 @@ function sendText(chatId, text) {
 // }
 
 function sendPhoto(chatId, photo) {
+  var url = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=".concat(photo.file_id);
   var data = {
     "chat_id": chatId,
-    "text" : "https://api.telegram.org",
+    "text" : url,
     "parse_mode": "Markdown",
   };
   const res = axios.post(`${telegramUrl}/sendMessage`, data);
