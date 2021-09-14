@@ -14,7 +14,7 @@ function processUpdate(body) {
 function sendPhoto(chatId, text) {
   var data = {
     "chat_id": chatId,
-    "photo":"https://telegram.org/img/t_logo.png",
+    "photo":getFile(chat_id),
     "parse_mode": "Markdown",
   };
   const res = axios.post(`${telegramUrl}/sendPhoto`, data);
