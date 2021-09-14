@@ -54,7 +54,7 @@ function sendPhoto(chatId, photo) {
   // const obj = axios.get(url).then(response => response.data);
   var data = {
     "chat_id": chatId,
-    "text" : axiosTest(),
+    "text" : axiosTest().then(data => data),
     "parse_mode": "HTML",
   };
   const res = axios.post(`${telegramUrl}/sendMessage`, data);
