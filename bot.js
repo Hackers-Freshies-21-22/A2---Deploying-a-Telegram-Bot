@@ -49,7 +49,7 @@ function sendPhoto(chatId, photo) {
   const url = token.concat(photo[0].file_id);
   // "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/".concat(url.result.file_path),
   axios.get(url).then(function (response) {
-    console.log(response);
+    console.log(response.data.result.file_path);
 }).catch(function (error) {
     console.log(error);
 });
