@@ -35,8 +35,8 @@ function sendText(chatId, text) {
 function sendPhoto(chatId, text) {
   var data = {
     "chat_id": chatId,
-    "photo" = "https://media.istockphoto.com/vectors/cute-corgi-puppy-cartoon-icon-vector-illustration-vector-id1053204008?k=20&m=1053204008&s=612x612&w=0&h=5E4t-YYZXFtKgZbLj1lW-aWY6m4wp78y0mh3iJbXC8Q=",
-    "caption" = text,
+    "photo" : "https://media.istockphoto.com/vectors/cute-corgi-puppy-cartoon-icon-vector-illustration-vector-id1053204008?k=20&m=1053204008&s=612x612&w=0&h=5E4t-YYZXFtKgZbLj1lW-aWY6m4wp78y0mh3iJbXC8Q=",
+    "caption" : text,
     "parse_mode": "Markdown",
   };
   const res = axios.post(`${telegramUrl}/sendMessage`, data);
