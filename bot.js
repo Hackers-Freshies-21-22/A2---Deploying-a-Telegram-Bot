@@ -9,26 +9,27 @@ console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 //setWebhook https://api.telegram.org/bot1928355698:AAGhQC-xDoTW0zxgxDQuQ6xayjACQEDDFyQ/setWebhook?url=https://immense-escarpment-36150.herokuapp.com/
 
 function processUpdate(body) {
-  getFile(body.message.PhotoSize.file_id);
+  var fileId=body.message.photo[0].file_id;
+  sendPhoto(body.message.chat.id,body.message.text);
 }
-
-function getFile(fileId) {
+function sendPhoto(chatId, fileId) {
   var data = {
-    "file_Id": fileId,
+    "chat_id": chatId,
+    "photo":fileId,
     "parse_mode": "Markdown",
   };
-  const res = axios.post(`${telegramUrl}/getFile`, data);
+  const res = axios.post(`${telegramUrl}/sendPhoto`, data);
   res.then(response => {
     return response;
   }).catch(err => console.log(err));
 }
-// function sendPhoto(chatId, text) {
+// function sendText(chatId, text) {
 //   var data = {
 //     "chat_id": chatId,
 //     "text": text,
 //     "parse_mode": "Markdown",
 //   };
-//   const res = axios.post(`${telegramUrl}/sendPhoto`, data);
+//   const res = axios.post(`${telegramUrl}/sendMessage`, data);
 //   res.then(response => {
 //     return response;
 //   }).catch(err => console.log(err));
