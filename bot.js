@@ -79,6 +79,7 @@ function sendPhoto(chatId, photo) {
   //   })
   //   .catch(err => console.log(err));
 
+<<<<<<< HEAD
   // const pic = getFile(photo[0].file_id);
   var data = {
     "chat_id": chatId,
@@ -92,6 +93,15 @@ function sendPhoto(chatId, photo) {
       console.log(response);
     }).catch(err => console.log(err));
 
+=======
+  // const pic = getFile(photo[0].file_id);
+
+  // var data = {
+  //   "chat_id": chatId,
+  //   "text" : pic,
+  //   "parse_mode": "HTML",
+  // };
+>>>>>>> 17610318cfe3dd456b7d3fd4c7e11cffed10f1ed
   const res = axios.post(`${telegramUrl}/sendMessage`, data);
   res.then(response => {
     return response;
