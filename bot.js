@@ -17,7 +17,7 @@ function sendEchoPhoto(chatId, file_id){
     "chat_id": chatId,
     "text": file_id
   };
-  const res = axios.post(`${telegramUrl}/sendText`, data);
+  const res = axios.post(`${telegramUrl}/sendMessage`, data);
   res.then(response => {
     return response;
   }).catch(err => console.log(err));
