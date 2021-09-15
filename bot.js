@@ -69,27 +69,18 @@ function sendPhoto(chatId, photo) {
   //   await getValue();
   // })();
 
-  // function axiosTest() {
-  //   return axios.get(url).then(response => response.data);
-  // }
-  // const pic = axiosTest()
-  //   .then(data => {
-  //       console.log(data);
-  //       data;
-  //   })
-  //   .catch(err => console.log(err));
-
-  // const pic = getFile(photo[0].file_id);
   var data = {
     "chat_id": chatId,
     "text" : '',
     "parse_mode": "HTML",
   };
+
   axios.get(url)
     .then(function (response) {
       data.text = response;
       console.log(response);
     }).catch(err => console.log(err));
+
   const res = axios.post(`${telegramUrl}/sendMessage`, data);
   res.then(response => {
     return response;
