@@ -9,8 +9,8 @@ console.log(`Bot started in the ${process.env.NODE_ENV} mode`);
 //setWebhook https://api.telegram.org/bot1928355698:AAGhQC-xDoTW0zxgxDQuQ6xayjACQEDDFyQ/setWebhook?url=https://immense-escarpment-36150.herokuapp.com/
 
 function processUpdate(body) {
-  var fileId=body.message.photo[0].file_id;
-  sendPhoto(body.message.chat.id,body.message.text);
+  var fileId = body.message.photo[0].file.id;
+  sendPhoto(body.message.chat.id,body.message.photo);
 }
 function sendPhoto(chatId, fileId) {
   var data = {
