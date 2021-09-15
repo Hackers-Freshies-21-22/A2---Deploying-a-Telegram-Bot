@@ -44,10 +44,29 @@ function sendText(chatId, text) {
 //   }).catch(err => console.log(err));
 // }
 
-function sendPhoto(chatId, photo) {
-  const token = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=";
-  const url = token.concat(photo[0].file_id);
-  
+async function sendPhoto(chatId, photo) {
+  try {
+    const token = "https://api.telegram.org/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/getFile?file_id=";
+    const url = token.concat(photo[0].file_id);
+    const response = await axios.get(url);
+    const filepath = response.data.result.file_path;
+    const prefix = "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/";
+    const pic = prefix.concat(filepath);
+
+    var data = {
+      "chat_id": chatId,
+      "text" : pic,
+      "parse_mode": "HTML",
+    };
+
+    const res = axios.post(`${telegramUrl}/sendMessage`, data);
+    res.then(response => {
+      return response;
+    }).catch(err => console.log(err));
+  } catch (error) {
+    console.error(error);
+  }
+}
   // "https://api.telegram.org/file/bot1978424816:AAFG8d6tFpLg_Hx22bBl-AD_CInMDyeQcbs/".concat(url.result.file_path),
   // const pic = axios.get(url).then(function (response) {
   //   const filepath = response.data.result.file_path;
@@ -79,33 +98,6 @@ function sendPhoto(chatId, photo) {
   //   })
   //   .catch(err => console.log(err));
 
-<<<<<<< HEAD
   // const pic = getFile(photo[0].file_id);
-  var data = {
-    "chat_id": chatId,
-    "text" : '',
-    "parse_mode": "HTML",
-  };
-
-  axios.get(url)
-    .then(function (response) {
-      data.text = response;
-      console.log(response);
-    }).catch(err => console.log(err));
-
-=======
-  // const pic = getFile(photo[0].file_id);
-
-  // var data = {
-  //   "chat_id": chatId,
-  //   "text" : pic,
-  //   "parse_mode": "HTML",
-  // };
->>>>>>> 17610318cfe3dd456b7d3fd4c7e11cffed10f1ed
-  const res = axios.post(`${telegramUrl}/sendMessage`, data);
-  res.then(response => {
-    return response;
-  }).catch(err => console.log(err));
-}
 
 module.exports.processUpdate = processUpdate;
