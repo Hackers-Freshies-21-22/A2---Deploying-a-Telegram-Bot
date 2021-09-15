@@ -69,6 +69,17 @@ function sendPhoto(chatId, photo) {
   //   await getValue();
   // })();
 
+  // function axiosTest() {
+  //   return axios.get(url).then(response => response.data);
+  // }
+  // const pic = axiosTest()
+  //   .then(data => {
+  //       console.log(data);
+  //       data;
+  //   })
+  //   .catch(err => console.log(err));
+
+  // const pic = getFile(photo[0].file_id);
   var data = {
     "chat_id": chatId,
     "text" : '',
