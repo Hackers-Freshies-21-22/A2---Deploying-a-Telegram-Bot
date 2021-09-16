@@ -1,4 +1,4 @@
-const token = "773814416:AAHCqZF21y556MneqEhtPRkZ_clWeMGk-QQ";//process.env.TELEGRAM_TOKEN;
+const token = process.env.TELEGRAM_TOKEN;
 var telegramUrl = "https://api.telegram.org/bot" + token;
 
 const axios = require('axios');
